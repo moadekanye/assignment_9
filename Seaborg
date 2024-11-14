@@ -1,0 +1,20 @@
+# question 1
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the dataset
+data = pd.read_csv('Exercise_Data.csv')
+plt.figure(figsize=(10, 6))
+sns.heatmap(data.pivot('diet', 'exercise_type', 'pulse'), cmap='coolwarm', annot=True)
+plt.title("Heatmap of Pulse Data by Diet and Exercise Type")
+plt.xlabel("Type of Exercise")
+plt.ylabel("Diet")
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.catplot(data=data, x='diet', y='pulse', hue='exercise_type', kind='box')
+plt.title("Pulse Values by Diet and Exercise Type")
+plt.xlabel("Diet")
+plt.ylabel("Pulse")
+plt.legend(title="Exercise Type")
+plt.show()
